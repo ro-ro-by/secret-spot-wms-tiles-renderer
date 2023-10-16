@@ -1,0 +1,13 @@
+map:
+  bbox: [23, 51, 33, 56.2]
+#  bbox: [24.9, 53.10, 25.23, 53.22]
+db:
+  db_host: db
+  db_user: admin
+  db_password:
+  db_name: admin
+scale:
+  - zoom: [1, 12]
+    template: './config/scale/small/map.tmpl.xml'
+  - zoom: [13, 18]
+    template: './config/scale/medium/map.tmpl.xml'
