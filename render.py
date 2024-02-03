@@ -60,12 +60,12 @@ def render(zoom_min, zoom_max, output_dir):
 
     config = get_config()
 
-    bbox = config['map']['bbox']
     db = config['db']
 
     for zoom in range(zoom_min, zoom_max + 1):
         zoom_options = get_zoom_options(config, zoom)
 
+        bbox = zoom_options['bbox']
         map_template = zoom_options['template']
         map_file = generate_map_file(map_template, db, {
             'dir': os.getcwd()

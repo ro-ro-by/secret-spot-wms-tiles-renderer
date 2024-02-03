@@ -1,9 +1,9 @@
-FROM python:2 as base
+FROM python:2 as runtime
 
 RUN pip install pyyaml mapnik
 
-FROM base
+FROM runtime
 
-COPY . /usr/src/renderer
+COPY . /app
 
-WORKDIR /usr/src/renderer
+WORKDIR /app
