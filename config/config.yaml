@@ -7,9 +7,9 @@ db:
   db_password:
   db_name: postgres
 scale:
-  - zoom: [1, 12]
+  - zoom: [1, 10]
     bbox: [23, 51, 33, 56.2]
     template: './config/scale/small/map.tmpl.xml'
-  - zoom: [13, 18]
-    bbox: [24.9, 53.10, 25.23, 53.22]
+  - zoom: [11, 18]
+    bbox: [23, 51, 33, 56.2]
     template: './config/scale/medium/map.tmpl.xml'

@@ -3,7 +3,8 @@
   <Style name="default">
     <Rule>
       <Filter>[type] = 'spring'</Filter>
-      <MarkersSymbolizer file="%DIR%/config/scale/medium/img/spring-v2.png" width="32" height="32"/>
+      <MarkersSymbolizer fill="blue" opacity=".5" width="5" height="5"
+                         stroke="black" stroke-width="1" stroke-opacity="0.2" placement="point" marker-type="ellipse"/>
       <TextSymbolizer fill="#8000FF"
                       halo-fill="#f7f7f7"
                       halo-radius="1"
@@ -16,7 +17,8 @@
     </Rule>
     <Rule>
       <Filter>[type] = 'boulder'</Filter>
-      <MarkersSymbolizer file="%DIR%/config/scale/medium/img/stone-v2.png" width="32" height="32"/>
+      <MarkersSymbolizer fill="red" opacity=".5" width="5" height="5"
+                         stroke="black" stroke-width="1" stroke-opacity="0.2" placement="point" marker-type="ellipse"/>
       <TextSymbolizer fill="#8000FF"
                       halo-fill="#f7f7f7"
                       halo-radius="1"
@@ -29,7 +31,8 @@
     </Rule>
     <Rule>
       <Filter>[type] = 'tree'</Filter>
-      <MarkersSymbolizer file="%DIR%/config/scale/medium/img/tree-v2.png" width="32" height="32"/>
+      <MarkersSymbolizer fill="orange" opacity=".5" width="5" height="5"
+                         stroke="black" stroke-width="1" stroke-opacity="0.2"  placement="point" marker-type="ellipse"/>
       <TextSymbolizer fill="#8000FF"
                       halo-fill="#f7f7f7"
                       halo-radius="1"
@@ -42,7 +45,8 @@
     </Rule>
     <Rule>
       <Filter>([type] != 'spring') and ([type] != 'boulder') and ([type] != 'tree')</Filter>
-      <MarkersSymbolizer file="%DIR%/config/scale/medium/img/something-v2.png" width="32" height="32"/>
+      <MarkersSymbolizer fill="gray" opacity=".5" width="5" height="5"
+                         stroke="black" stroke-width="1" stroke-opacity="0.2" placement="point" marker-type="ellipse"/>
       <TextSymbolizer fill="#8000FF"
                       halo-fill="#f7f7f7"
                       halo-radius="1"
