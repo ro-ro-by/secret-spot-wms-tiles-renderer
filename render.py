@@ -13,18 +13,18 @@ def get_config():
         return yaml.load(f, Loader=yaml.Loader)
 
 
-def get_zoom_options(config, zoom):
-    for options_item in config['scale']:
-        zoom_range = options_item['zoom']
+def get_zoom_config(config, zoom):
+    for config_item in config['scale']:
+        zoom_range = config_item['zoom']
         zoom_list = range(zoom_range[0], zoom_range[1] + 1)
 
         if zoom in zoom_list:
-            return options_item
+            return config_item
 
 
-def build_replace_map(db, options):
+def build_replace_map(providers):
     replace_map = {}
-    for values in [db, options]:
+    for values in providers:
         for key in values:
             replace_map[key] = str(values[key])
 
@@ -37,15 +37,13 @@ def generate_temp_filename():
     return file.name
 
 
-def generate_map_file(tmpl, db, options):
+def generate_map_file(tmpl, options):
     file = open(tmpl)
     content = file.read()
     file.close()
 
-    replace_map = build_replace_map(db, options)
-
-    for key in replace_map:
-        content = content.replace('%%%s%%' % key.upper(), replace_map[key])
+    for key in options:
+        content = content.replace('%%%s%%' % key.upper(), options[key])
 
     output_filename = generate_temp_filename()
     output_file = open(output_filename, 'w')
@@ -61,15 +59,19 @@ def render(zoom_min, zoom_max, output_dir):
     config = get_config()
 
     db = config['db']
+    options = config['options']
 
     for zoom in range(zoom_min, zoom_max + 1):
-        zoom_options = get_zoom_options(config, zoom)
+        zoom_config = get_zoom_config(config, zoom)
 
-        bbox = zoom_options['bbox']
-        map_template = zoom_options['template']
-        map_file = generate_map_file(map_template, db, {
+        bbox = zoom_config['bbox']
+        map_template = zoom_config['template']
+        zoom_options = zoom_config['options']
+        options = build_replace_map([db, options, zoom_options, {
             'dir': os.getcwd()
-        })
+        }])
+
+        map_file = generate_map_file(map_template, options)
 
         print 'Rendering zoom ', zoom, '...'
         render_tiles(bbox, map_file, output_dir, zoom, zoom)

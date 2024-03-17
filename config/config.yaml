@@ -6,10 +6,41 @@ db:
   db_user: postgres
   db_password:
   db_name: postgres
+options:
+  opacity: 0.7
+  opacity_area: 0.3
+  marker_size: 4
+  marker_border_size: 1
+  text_format: >
+    [title] + ' ' + '[' + [short_id] + ']'
 scale:
-  - zoom: [1, 10]
-    bbox: [23, 51, 33, 56.2]
+  - zoom: [ 1, 8 ]
+    bbox: [ 23, 51, 33, 56.2 ]
+    options:
+      marker_size: 4
+      marker_border_size: 1
     template: './config/scale/small/map.tmpl.xml'
-  - zoom: [11, 18]
+  - zoom: [ 9, 10 ]
+    bbox: [ 23, 51, 33, 56.2 ]
+    options:
+      marker_size: 8
+      marker_border_size: 2
+    template: './config/scale/small/map.tmpl.xml'
+  - zoom: [ 11, 12 ]
     bbox: [23, 51, 33, 56.2]
+    options:
+      opacity: 0.5
+      opacity_area: 0.2
+      marker_size: 12
+      marker_border_size: 3
+    template: './config/scale/small/map.tmpl.xml'
+  - zoom: [ 13, 18 ]
+    bbox: [23, 51, 33, 56.2]
+#    bbox: [23, 51, 25, 53]
+#    bbox: [24.9, 53.10, 25.23, 53.22]
+    options:
+      opacity: 0.5
+      opacity_area: 0.2
+      marker_size: 12
+      marker_border_size: 3
     template: './config/scale/medium/map.tmpl.xml'

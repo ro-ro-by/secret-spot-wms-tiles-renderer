@@ -3,59 +3,73 @@
   <Style name="default">
     <Rule>
       <Filter>[type] = 'spring'</Filter>
-      <MarkersSymbolizer fill="blue" opacity=".5" width="5" height="5"
-                         stroke="black" stroke-width="1" stroke-opacity="0.2" placement="point" marker-type="ellipse"/>
-      <TextSymbolizer fill="#8000FF"
+      <MarkersSymbolizer fill="blue" opacity="%OPACITY%" width="%MARKER_SIZE%" height="%MARKER_SIZE%"
+                         stroke="black" stroke-width="%MARKER_BORDER_SIZE%" stroke-opacity="%OPACITY%" placement="point" marker-type="ellipse" allow-overlap="true"/>
+      <TextSymbolizer fill="black"
                       halo-fill="#f7f7f7"
                       halo-radius="1"
                       size="10"
-                      dy="-20"
-                      wrap-width="100"
+                      dy="-10"
+                      wrap-width="100" placements="N,S,15,10,8" placement-type="simple"
                       face-name="DejaVu Sans Book">
-        [title] + ' ' + '(' + [type] + ')'
+        %TEXT_FORMAT%
       </TextSymbolizer>
     </Rule>
     <Rule>
       <Filter>[type] = 'boulder'</Filter>
-      <MarkersSymbolizer fill="red" opacity=".5" width="5" height="5"
-                         stroke="black" stroke-width="1" stroke-opacity="0.2" placement="point" marker-type="ellipse"/>
-      <TextSymbolizer fill="#8000FF"
+      <MarkersSymbolizer fill="red" opacity="%OPACITY%" width="%MARKER_SIZE%" height="%MARKER_SIZE%"
+                         stroke="black" stroke-width="%MARKER_BORDER_SIZE%" stroke-opacity="%OPACITY%" placement="point" marker-type="ellipse" allow-overlap="true"/>
+      <TextSymbolizer fill="black"
                       halo-fill="#f7f7f7"
                       halo-radius="1"
                       size="10"
-                      dy="-20"
-                      wrap-width="100"
+                      dy="-10"
+                      wrap-width="100" placements="N,S,15,10,8" placement-type="simple"
                       face-name="DejaVu Sans Book">
-        [title] + ' ' + '(' + [type] + ')'
+        %TEXT_FORMAT%
       </TextSymbolizer>
     </Rule>
     <Rule>
       <Filter>[type] = 'tree'</Filter>
-      <MarkersSymbolizer fill="orange" opacity=".5" width="5" height="5"
-                         stroke="black" stroke-width="1" stroke-opacity="0.2"  placement="point" marker-type="ellipse"/>
-      <TextSymbolizer fill="#8000FF"
+      <MarkersSymbolizer fill="orange" opacity="%OPACITY%" width="%MARKER_SIZE%" height="%MARKER_SIZE%"
+                         stroke="black" stroke-width="%MARKER_BORDER_SIZE%" stroke-opacity="%OPACITY%"  placement="point" marker-type="ellipse" allow-overlap="true"/>
+      <TextSymbolizer fill="black"
                       halo-fill="#f7f7f7"
                       halo-radius="1"
                       size="10"
-                      dy="-20"
-                      wrap-width="100"
+                      dy="-10"
+                      wrap-width="100" placements="N,S,15,10,8" placement-type="simple"
                       face-name="DejaVu Sans Book">
-        [title] + ' ' + '(' + [type] + ')'
+        %TEXT_FORMAT%
       </TextSymbolizer>
     </Rule>
     <Rule>
-      <Filter>([type] != 'spring') and ([type] != 'boulder') and ([type] != 'tree')</Filter>
-      <MarkersSymbolizer fill="gray" opacity=".5" width="5" height="5"
-                         stroke="black" stroke-width="1" stroke-opacity="0.2" placement="point" marker-type="ellipse"/>
-      <TextSymbolizer fill="#8000FF"
+      <Filter>([type] != 'spring') and ([type] != 'boulder') and ([type] != 'tree') and [mapnik::geometry_type]=point</Filter>
+      <MarkersSymbolizer fill="gray" opacity="%OPACITY%" width="%MARKER_SIZE%" height="%MARKER_SIZE%"
+                         stroke="black" stroke-width="%MARKER_BORDER_SIZE%" stroke-opacity="%OPACITY%" placement="point" marker-type="ellipse" allow-overlap="true"/>
+      <TextSymbolizer fill="black"
                       halo-fill="#f7f7f7"
                       halo-radius="1"
                       size="10"
-                      dy="-20"
-                      wrap-width="100"
+                      dy="-10"
+                      wrap-width="100" placements="N,S,15,10,8" placement-type="simple"
                       face-name="DejaVu Sans Book">
-        [title] + ' ' + '(' + [type] + ')'
+        %TEXT_FORMAT%
       </TextSymbolizer>
+    </Rule>
+    <Rule>
+      <Filter>([type] != 'spring') and ([type] != 'boulder') and ([type] != 'tree') and [mapnik::geometry_type]=polygon</Filter>
+      <TextSymbolizer fill="black"
+                      halo-fill="#f7f7f7"
+                      halo-radius="1"
+                      size="10"
+                      dy="-10"
+                      wrap-width="100" placements="N,S,15,10,8" placement-type="simple"
+                      face-name="DejaVu Sans Book">
+        %TEXT_FORMAT%
+      </TextSymbolizer>
+      <PolygonSymbolizer fill-opacity="%OPACITY_AREA%" fill="green"/>
+      <LineSymbolizer stroke="black" stroke-width="1" stroke-opacity="%OPACITY%" />
     </Rule>
   </Style>
   <Layer name="default" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs">
