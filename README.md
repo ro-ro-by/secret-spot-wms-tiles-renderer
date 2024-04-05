@@ -1,6 +1,7 @@
-# Secret Spot WMS tiles renderer
+# [🙊] Secret Spot | WMS tiles renderer
 
-Renderer of `SecretSpot` objects to WMS tiles using `Mapnik`
+Renderer of `[🙊] Secret Spot` objects to WMS raster tiles using `Mapnik`.
+Uses `PostgreSQL` database as a datasource.
 
 ## Usage
 ```bash
@@ -15,9 +16,4 @@ docker run --rm -it -t \
 ### Build
 ```bash
 docker buildx build . --tag isxam/secret-spot-wms-tiles-renderer:latest
-```
-
-### Push
-```bash
-docker push isxam/secret-spot-wms-tiles-renderer:latest
 ```
